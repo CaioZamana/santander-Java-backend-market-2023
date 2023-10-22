@@ -14,10 +14,7 @@ Java RESTful API criada para a Santander Dev Week.
 
 ```mermaid
 classDiagram
-  class PaymentMethod {
-    + id: Long
-    + name: String
-  }
+
 
   class Category {
     + id: Long
@@ -44,11 +41,15 @@ classDiagram
     + paymentMethod: PaymentMethod
   }
 
+    class PaymentMethod {
+    + id: Long
+    + name: String
+  }
+
   Category "1" --* "1..*" Product
   CartItem "1" --* "1..*" Product
   Checkout "1" --* "1..*" CartItem
   Checkout --|> PaymentMethod
-
 
 
 ```
