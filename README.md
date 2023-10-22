@@ -98,7 +98,7 @@ A estrutura do projeto segue as melhores práticas de desenvolvimento em Java co
 
 Para quaisquer dúvidas, problemas ou sugestões, por favor, abra uma "Issue" no repositório do GitHub.
 
-
+#
 ### Contato:
 <a href="https://www.linkedin.com/in/caiozamana/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank">
 <a href="https://api.whatsapp.com/send?phone=55048991477921" target="_blank"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white">
