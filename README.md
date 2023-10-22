@@ -13,25 +13,45 @@ Java RESTful API criada para a Santander Dev Week.
 ## Diagrama de Classes (Domínio da API)
 
 ```mermaid
-classDef PaymentMethod fill:#6FB1FC,stroke:#333,stroke-width:2px;
-classDef Category fill:#FC9E6F,stroke:#333,stroke-width:2px;
-classDef Product fill:#9DFC6F,stroke:#333,stroke-width:2px;
-classDef CartItem fill:#FC6F6F,stroke:#333,stroke-width:2px;
-classDef Checkout fill:#F1C40F,stroke:#333,stroke-width:2px;
+classDiagram
+  class PaymentMethod {
+    + id: Long
+    + name: String
+  }
 
-PaymentMethod --|> Enum: CARTAO_CREDITO\nCARTAO_DEBITO\nDINHEIRO\nPIX
+  class Category {
+    + id: Long
+    + name: String
+  }
 
-Category: <<Class>>\nid: Long\nname: String
-Product: <<Class>>\nid: Long\nname: String\nunit: String\nprice: Double
-CartItem: <<Class>>\nid: Long\nproductId: Long\nquantity: Int\nsalePrice: Double
-Checkout: <<Class>>\nid: Long\ntotal: Double\npaymentMethod: PaymentMethod
+  class Product {
+    + id: Long
+    + name: String
+    + unit: String
+    + price: Double
+  }
 
-Category --* Product: Contains
-Product --|> Category: Belongs to
-Product --* CartItem: Contains
-CartItem --* Product: Contains
-CartItem --> Checkout: Part of
-Checkout --> PaymentMethod: Payment Method
+  class CartItem {
+    + id: Long
+    + productId: Long
+    + quantity: Int
+    + salePrice: Double
+  }
+
+  class Checkout {
+    + id: Long
+    + total: Double
+    + paymentMethod: PaymentMethod
+  }
+
+  PaymentMethod --|> Enum
+  Category "1" --* "1..*" Product
+  CartItem "1" --* "1..*" Product
+  CartItem --|> Entity
+  Checkout "1" --* "1..*" CartItem
+  Checkout --|> PaymentMethod
+
+
 
 ```
 
