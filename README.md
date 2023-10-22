@@ -92,7 +92,8 @@ O projeto utiliza o banco de dados H2 para testes e desenvolvimento e PostgreSQL
 ## Tratamento de Erros e Exceções
 A aplicação possui um mecanismo de tratamento de erros para fornecer respostas adequadas em caso de problemas. Os erros são tratados de forma global no GlobalExceptionHandler, e diferentes tipos de exceções são mapeados para respostas HTTP com códigos de status apropriados.
 
-## Considerações Finais do projeto "santander-auto-atendimento-compras"
+## Considerações Finais do projeto "santander-Java-backend-market-2023
+"
 Este projeto tem o funcionamento de um auto atendimento, permitindo que os clientes façam suas compras de forma autônoma e eficiente. 
 A estrutura do projeto segue as melhores práticas de desenvolvimento em Java com o uso do Spring Framework, proporcionando modularidade, reutilização de código e facilidade de manutenção.
 
