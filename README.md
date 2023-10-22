@@ -54,6 +54,6 @@ classDiagram
 
 ```
 
-### Link documentação API em produção (Swagger)
+### Link documentação API em produção utilizando banco de dados relacional com PostgreSQL (Swagger)
 https://santander-autoatendimento-compras.up.railway.app/swagger-ui/index.html
 
