@@ -9,54 +9,29 @@ Java RESTful API criada para a Santander Dev Week.
  - **OpenAPI (Swagger)**: Vamos criar uma documentação de API eficaz e fácil de entender usando a OpenAPI (Swagger), perfeitamente alinhada com a alta produtividade que o Spring Boot oferece;
  - **Railway**: facilita o deploy e monitoramento de nossas soluções na nuvem, além de oferecer diversos bancos de dados como serviço e pipelines de CI/CD.
 
-## [Link do Figma](https://www.figma.com/file/0ZsjwjsYlYd3timxqMWlbj/SANTANDER---Projeto-Web%2FMobile?type=design&node-id=1421%3A432&mode=design&t=6dPQuerScEQH0zAn-1)
-
-O Figma foi utilizado para a abstração do domínio desta API, sendo útil na análise e projeto da solução.
 
 ## Diagrama de Classes (Domínio da API)
 
 ```mermaid
-classDiagram
-  class User {
-    -String name
-    -Account account
-    -Feature[] features
-    -Card card
-    -News[] news
-  }
+classDef PaymentMethod fill:#6FB1FC,stroke:#333,stroke-width:2px;
+classDef Category fill:#FC9E6F,stroke:#333,stroke-width:2px;
+classDef Product fill:#9DFC6F,stroke:#333,stroke-width:2px;
+classDef CartItem fill:#FC6F6F,stroke:#333,stroke-width:2px;
+classDef Checkout fill:#F1C40F,stroke:#333,stroke-width:2px;
 
-  class Account {
-    -String number
-    -String agency
-    -Number balance
-    -Number limit
-  }
+PaymentMethod --|> Enum: CARTAO_CREDITO\nCARTAO_DEBITO\nDINHEIRO\nPIX
 
-  class Feature {
-    -String icon
-    -String description
-  }
+Category: <<Class>>\nid: Long\nname: String
+Product: <<Class>>\nid: Long\nname: String\nunit: String\nprice: Double
+CartItem: <<Class>>\nid: Long\nproductId: Long\nquantity: Int\nsalePrice: Double
+Checkout: <<Class>>\nid: Long\ntotal: Double\npaymentMethod: PaymentMethod
 
-  class Card {
-    -String number
-    -Number limit
-  }
+Category --* Product: Contains
+Product --|> Category: Belongs to
+Product --* CartItem: Contains
+CartItem --* Product: Contains
+CartItem --> Checkout: Part of
+Checkout --> PaymentMethod: Payment Method
 
-  class News {
-    -String icon
-    -String description
-  }
-
-  User "1" *-- "1" Account
-  User "1" *-- "N" Feature
-  User "1" *-- "1" Card
-  User "1" *-- "N" News
 ```
 
-## IMPORTANTE
-
-Este projeto foi construído com um viés totalmente educacional para a DIO. Por isso, disponibilizamos uma versão mais robusta dele no repositório oficial da DIO:
-
-### [digitalinnovationone/santander-dev-week-2023-api](https://github.com/digitalinnovationone/santander-dev-week-2023-api)
-
-Lá incluímos todas os endpoints de CRUD, além de aplicar boas práticas (uso de DTOs e refinamento na documentação da OpenAPI). Sendo assim, caso queira um desafio/referência mais completa é só acessar 👊🤩
