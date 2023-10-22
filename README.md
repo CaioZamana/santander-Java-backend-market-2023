@@ -50,7 +50,6 @@ classDiagram
   CartItem "1" --* "1..*" Product
   Checkout "1" --* "1..*" CartItem
   Checkout "1" --* "1" PaymentMethod
-  Checkout --|> PaymentMethod
 
 
 ```
