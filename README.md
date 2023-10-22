@@ -44,10 +44,8 @@ classDiagram
     + paymentMethod: PaymentMethod
   }
 
-  PaymentMethod --|> Enum
   Category "1" --* "1..*" Product
   CartItem "1" --* "1..*" Product
-  CartItem --|> Entity
   Checkout "1" --* "1..*" CartItem
   Checkout --|> PaymentMethod
 
