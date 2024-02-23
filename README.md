@@ -54,11 +54,7 @@ classDiagram
 
 ```
 
-### Link documentação API em produção utilizando banco de dados relacional com PostgreSQL (Swagger)
 
-A documentação da API do projeto de mercado é gerada utilizando o Swagger, uma ferramenta amplamente utilizada para a documentação e visualização de APIs RESTful.
-
-https://santander-autoatendimento-compras.up.railway.app/swagger-ui/index.html
 
 # Funcionalidades
 
